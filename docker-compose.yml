@@ -7,11 +7,11 @@ services:
       - sql
     env_file:
       # Make sure to update this to match your project.
-      - ./project.env
+      - ./autumnowl.env
     environment:
       - MYSQL_HOST=sql
     ports:
-      - 8081:4200
+      - 8082:4200
     volumes:
       - ./backend/src:/home/node/app/src
       - ./backend/tsconfig.json:/home/node/app/tsconfig.json
@@ -20,18 +20,18 @@ services:
     platform: linux/x86_64
     # Make sure to update this to match your project.
     env_file:
-      - ./project.env
+      - ./autumnowl.env
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - compose-lesson:/var/lib/mysql
     ports:
       - 33006:3306
-  app:
-    build: frontend
-    depends_on:
-      - node
-    #    For deploying to server use ports: - 80:80
-    ports:
-      - 80:80
+#  app:
+#    build: frontend
+#    depends_on:
+#      - node
+#    #    For deploying to server use ports: - 80:80
+#    ports:
+#      - 80:80
 volumes:
   compose-lesson:
