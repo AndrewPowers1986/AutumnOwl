@@ -1,0 +1,47 @@
+/*Text*/
+.page-header {
+    text-align: center;
+    border-bottom: thin solid black;
+}
+
+.section-header {
+    text-align: center;
+    border-bottom: thin solid black;
+}
+
+.passage {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+/*Container*/
+#autumn-owl_section {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.main-section {
+    border: thin solid black;
+    box-shadow: inset 0 0 1em 0em #000000;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 1em 1em 5em;
+}
+
+html {
+    box-shadow: inset 0 0 1em 0em #CCCCCC;
+}
+
+#root {
+    background-color: black;
+}
+
+#root > * {
+    background-color: white;
+}
