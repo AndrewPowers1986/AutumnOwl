@@ -25,7 +25,7 @@ services:
     volumes:
       - compose-lesson:/var/lib/mysql
     ports:
-      - 33006:3306
+      - 33007:3306
 #  app:
 #    build: frontend
 #    depends_on:

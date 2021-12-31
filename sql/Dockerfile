@@ -1,2 +1,2 @@
 FROM mysql
-COPY database.sql /docker0entrypoint-initdb.d/
+COPY autumnowl.sql /docker0entrypoint-initdb.d/

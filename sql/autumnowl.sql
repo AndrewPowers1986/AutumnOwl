@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS projectOrder;
+DROP TABLE IF EXISTS required;
+DROP TABLE IF EXISTS transaction;
+DROP TABLE IF EXISTS material;
+DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS user;
+
 CREATE TABLE user
 (
     userId              BINARY(16)  NOT NULL,
@@ -65,14 +73,14 @@ CREATE TABLE required
 );
 
 # Link many projects to one order
-CREATE TABLE order
+CREATE TABLE projectOrder
 (
-    orderProjectId BINARY(16) NOT NULL,
-    orderTransactionId BINARY(16) NOT NULL,
-    orderQuantity VARCHAR(16) NOT NULL,
-    FOREIGN KEY (orderProjectId) REFERENCES project (projectId),
-    FOREIGN KEY (orderTransactionId) REFERENCES transaction (transactionId),
-    PRIMARY KEY (orderProjectId, orderTransactionId)
+    projectOrderProjectId BINARY(16) NOT NULL,
+    projectOrderTransactionId BINARY(16) NOT NULL,
+    projectOrderQuantity VARCHAR(16) NOT NULL,
+    FOREIGN KEY (projectOrderProjectId) REFERENCES project (projectId),
+    FOREIGN KEY (projectOrderTransactionId) REFERENCES transaction (transactionId),
+    PRIMARY KEY (projectOrderProjectId, projectOrderTransactionId)
 );
 
 
