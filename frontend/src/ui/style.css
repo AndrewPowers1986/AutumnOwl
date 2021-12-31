@@ -14,10 +14,28 @@
     padding-right: 3em;
 }
 
+/*Images*/
+#autumn-owl_image-header {
+    max-width: 100%;
+}
+
+#autumn-owl_image-icon {
+    max-height: 12em;
+    width: auto;
+}
+
 /*Container*/
 #autumn-owl_section {
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
+    padding: 2em;
+    text-align: center;
+}
+
+#contact-us_section {
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    text-align: center;
 }
 
 .main-section {

@@ -1,10 +1,16 @@
 import React from "react";
+import PageHeader from "../../assets/AutumnOwl_header.svg";
+import AutumnOwl_Icon from "../../assets/AutumnOwl_icon.svg";
 
 export const Home = () => {
+    const headerImage = <img id={"autumn-owl_image-header"} src={PageHeader} alt={"Autumn Owl"}/>
+    const iconImage = <img id={"autumn-owl_image-icon"} src={AutumnOwl_Icon} alt={"Contact Autumn Owl on Facebook"}/>
+    const facebookPageLink = "https://www.facebook.com/MyAutumnOwl";
+
     return (
         <>
             <section id={"autumn-owl_section"} className={"main-section"}>
-                <h1 id={"autumn-owl_page-header"} className={"page-header"}>Autumn Owl</h1>
+                {headerImage}
             </section>
             <section id={"about-us_section"} className={"main-section"}>
                 <h3 id={"about-us_section-header"} className={"section-header"}>About Us</h3>
@@ -19,6 +25,9 @@ export const Home = () => {
             </section>
             <section id={"contact-us_section"} className={"main-section"}>
                 <h3 id={"contact-us_section-header"} className={"section-header"}>Contact Us</h3>
+                <a href={facebookPageLink}>
+                    {iconImage}
+                </a>
             </section>
         </>
     );
