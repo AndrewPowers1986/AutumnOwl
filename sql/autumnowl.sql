@@ -12,6 +12,8 @@ CREATE TABLE user
     userActivationToken CHAR(32),
     userEmail           VARCHAR(32) NOT NULL,
     userHash            CHAR(97)    NOT NULL,
+    UNIQUE (userEmail),
+    INDEX (userEmail),
     PRIMARY KEY (userID)
 );
 
@@ -23,8 +25,8 @@ CREATE TABLE customer
     customerNameLast  VARCHAR(32)  NOT NULL,
     customerPhone     VARCHAR(10)  NOT NULL,
     customerEmail     VARCHAR(32)  NOT NULL,
-    UNIQUE (customerPhone),
-    INDEX (customerPhone),
+    UNIQUE (customerEmail),
+    INDEX (customerEmail),
     PRIMARY KEY (customerId)
 );
 
@@ -51,7 +53,7 @@ CREATE TABLE material
 # Tracks income
 CREATE TABLE transaction
 (
-    transactionId BINARY(16) NOT NULL,
+    transactionId          BINARY(16)   NOT NULL,
     transactionCustomerId  BINARY(16)   NOT NULL,
     transactionAddress     VARCHAR(128) NOT NULL,
     transactionDateDue     DATETIME(6)  NOT NULL,
@@ -75,9 +77,9 @@ CREATE TABLE required
 # Link many projects to one order
 CREATE TABLE projectOrder
 (
-    projectOrderProjectId BINARY(16) NOT NULL,
-    projectOrderTransactionId BINARY(16) NOT NULL,
-    projectOrderQuantity VARCHAR(16) NOT NULL,
+    projectOrderProjectId     BINARY(16)  NOT NULL,
+    projectOrderTransactionId BINARY(16)  NOT NULL,
+    projectOrderQuantity      VARCHAR(16) NOT NULL,
     FOREIGN KEY (projectOrderProjectId) REFERENCES project (projectId),
     FOREIGN KEY (projectOrderTransactionId) REFERENCES transaction (transactionId),
     PRIMARY KEY (projectOrderProjectId, projectOrderTransactionId)

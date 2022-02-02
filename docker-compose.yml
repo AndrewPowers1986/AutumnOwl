@@ -11,7 +11,7 @@ services:
     environment:
       - MYSQL_HOST=sql
     ports:
-      - 8082:4200
+      - 8080:4200
     volumes:
       - ./backend/src:/home/node/app/src
       - ./backend/tsconfig.json:/home/node/app/tsconfig.json
@@ -25,13 +25,18 @@ services:
     volumes:
       - compose-lesson:/var/lib/mysql
     ports:
-      - 33007:3306
-#  app:
-#    build: frontend
-#    depends_on:
-#      - node
-#    #    For deploying to server use ports: - 80:80
-#    ports:
-#      - 80:80
+      - 33006:3306
+  app:
+    build: ./frontend
+    depends_on:
+      - node
+    #    For deploying to server use ports: - 80:80
+    volumes:
+      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/autumnowl/etc/letsencrypt/live/autumnowl.design/fullchain.pem:/etc/letsencrypt/live/autumnowl.design/fullchain.pem
+      - /docker-volumes/autumnowl/etc/letsencrypt/live/autumnowl.design/privkey.pem:/etc/letsencrypt/live/autumnowl.design/privkey.pemp-
+    ports:
+      - 80:80
+      - 443:443
 volumes:
   compose-lesson:
