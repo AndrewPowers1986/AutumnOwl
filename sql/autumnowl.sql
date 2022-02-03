@@ -1,9 +1,19 @@
+DROP TABLE IF EXISTS projectOrder;
+DROP TABLE IF EXISTS required;
+DROP TABLE IF EXISTS transaction;
+DROP TABLE IF EXISTS material;
+DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS user;
+
 CREATE TABLE user
 (
     userId              BINARY(16)  NOT NULL,
     userActivationToken CHAR(32),
     userEmail           VARCHAR(32) NOT NULL,
     userHash            CHAR(97)    NOT NULL,
+    UNIQUE (userEmail),
+    INDEX (userEmail),
     PRIMARY KEY (userID)
 );
 
@@ -15,8 +25,8 @@ CREATE TABLE customer
     customerNameLast  VARCHAR(32)  NOT NULL,
     customerPhone     VARCHAR(10)  NOT NULL,
     customerEmail     VARCHAR(32)  NOT NULL,
-    UNIQUE (customerPhone),
-    INDEX (customerPhone),
+    UNIQUE (customerEmail),
+    INDEX (customerEmail),
     PRIMARY KEY (customerId)
 );
 
@@ -43,7 +53,7 @@ CREATE TABLE material
 # Tracks income
 CREATE TABLE transaction
 (
-    transactionId BINARY(16) NOT NULL,
+    transactionId          BINARY(16)   NOT NULL,
     transactionCustomerId  BINARY(16)   NOT NULL,
     transactionAddress     VARCHAR(128) NOT NULL,
     transactionDateDue     DATETIME(6)  NOT NULL,
@@ -65,14 +75,14 @@ CREATE TABLE required
 );
 
 # Link many projects to one order
-CREATE TABLE order
+CREATE TABLE projectOrder
 (
-    orderProjectId BINARY(16) NOT NULL,
-    orderTransactionId BINARY(16) NOT NULL,
-    orderQuantity VARCHAR(16) NOT NULL,
-    FOREIGN KEY (orderProjectId) REFERENCES project (projectId),
-    FOREIGN KEY (orderTransactionId) REFERENCES transaction (transactionId),
-    PRIMARY KEY (orderProjectId, orderTransactionId)
+    projectOrderProjectId     BINARY(16)  NOT NULL,
+    projectOrderTransactionId BINARY(16)  NOT NULL,
+    projectOrderQuantity      VARCHAR(16) NOT NULL,
+    FOREIGN KEY (projectOrderProjectId) REFERENCES project (projectId),
+    FOREIGN KEY (projectOrderTransactionId) REFERENCES transaction (transactionId),
+    PRIMARY KEY (projectOrderProjectId, projectOrderTransactionId)
 );
 
 
