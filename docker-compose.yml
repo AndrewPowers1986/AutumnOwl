@@ -34,7 +34,7 @@ services:
     volumes:
       - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
       - /docker-volumes/autumnowl/etc/letsencrypt/live/autumnowl.design/fullchain.pem:/etc/letsencrypt/live/autumnowl.design/fullchain.pem
-      - /docker-volumes/autumnowl/etc/letsencrypt/live/autumnowl.design/privkey.pem:/etc/letsencrypt/live/autumnowl.design/privkey.pemp-
+      - /docker-volumes/autumnowl/etc/letsencrypt/live/autumnowl.design/privkey.pem:/etc/letsencrypt/live/autumnowl.design/privkey.pem
     ports:
       - 80:80
       - 443:443
