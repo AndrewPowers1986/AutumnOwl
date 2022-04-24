@@ -24,6 +24,12 @@
     width: auto;
 }
 
+.product_image-thumbnail {
+    max-height: 10em;
+    width: auto;
+    margin: 1em;
+}
+
 /*Container*/
 #autumn-owl_section {
     border-top-left-radius: 1em;

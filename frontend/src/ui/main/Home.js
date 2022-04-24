@@ -1,4 +1,6 @@
 import React from "react";
+import {Gallery} from "./Gallery";
+
 import PageHeader from "../../assets/AutumnOwl_header.svg";
 import AutumnOwl_Icon from "../../assets/AutumnOwl_icon.svg";
 
@@ -22,6 +24,7 @@ export const Home = () => {
             </section>
             <section id={"products_section"} className={"main-section"}>
                 <h3 id={"products_section-header"} className={"section-header"}>Products</h3>
+                <Gallery/>
             </section>
             <section id={"contact-us_section"} className={"main-section"}>
                 <h3 id={"contact-us_section-header"} className={"section-header"}>Contact Us</h3>
