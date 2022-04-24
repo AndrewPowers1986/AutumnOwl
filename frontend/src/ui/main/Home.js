@@ -8,6 +8,7 @@ export const Home = () => {
     const headerImage = <img id={"autumn-owl_image-header"} src={PageHeader} alt={"Autumn Owl"}/>
     const iconImage = <img id={"autumn-owl_image-icon"} src={AutumnOwl_Icon} alt={"Contact Autumn Owl on Facebook"}/>
     const facebookPageLink = "https://www.facebook.com/MyAutumnOwl";
+    const portfolioPageLink = "https://kellypowers.me";
 
     return (
         <>
@@ -31,6 +32,11 @@ export const Home = () => {
                 <a href={facebookPageLink}>
                     {iconImage}
                 </a>
+            </section>
+            <section id={"footer"}>
+                <p id={"signature"}>
+                    Website designed by <a href={portfolioPageLink}>Andrew Powers</a>
+                </p>
             </section>
         </>
     );
